@@ -7,6 +7,7 @@ const apiKey = import.meta.env.PUBLIC_API_KEY;
 
 <div id="container">
   <p>Tu API Key pública es: {apiKey}</p>
+
   <img id="background" src={background.src} alt="" fetchpriority="high" />
   <main>
     <section id="hero">
@@ -51,6 +52,19 @@ const apiKey = import.meta.env.PUBLIC_API_KEY;
     </p>
   </a>
 </div>
+<script type="module" is:inline>
+  async function loadVideos() {
+    try {
+      const res = await fetch(`/api/products`);
+      const data = await res.json();
+      console.log(data);
+    } catch (err) {
+      console.error("Error cargando:", err);
+    }
+  }
+
+  loadVideos();
+</script>
 
 <style>
   #background {
