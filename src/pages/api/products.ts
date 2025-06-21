@@ -1,6 +1,7 @@
 export async function GET(request: any) {
   const url = new URL(request.url);
-  const apiKey = import.meta.env.PUBLIC_API_KEY;
+  // const apiKey = import.meta.env.PUBLIC_API_KEY;
+  const apiKey = request.locals.runtime.env.PUBLIC_API_KEY;
 
   const apiUrl = `https://fakestoreapi.com/products?key=${apiKey}`;
   try {
